@@ -1,1 +1,71 @@
 
+import streamlit as st
+
+# Title of the application
+st.title("PhotoYou: Photography and Videography Teaching Assistant")
+
+# Sidebar for navigation
+st.sidebar.title("Navigation")
+selection = st.sidebar.radio("Go to", ["Home", "Lessons", "Project Ideas", "Step-by-Step", "Glossary", "Troubleshooting"])
+
+# Define the different pages
+if selection == "Home":
+    st.header("Welcome to PhotoYou!")
+    st.write("Learn and explore photography and videography at your own pace.")
+    st.image("welcome_image.jpg", caption="Capture the perfect moment!")
+
+elif selection == "Lessons":
+    st.header("Lessons")
+    st.write("Here you'll find instructional guides to improve your skills.")
+    lesson = st.selectbox("Choose a lesson topic", ["Camera Basics", "Lighting Techniques", "Composition Rules"])
+    if lesson == "Camera Basics":
+        st.subheader("Camera Basics")
+        st.write("Learn about camera settings, shutter speed, aperture, and ISO.")
+    elif lesson == "Lighting Techniques":
+        st.subheader("Lighting Techniques")
+        st.write("Understand natural and artificial lighting for better shots.")
+    elif lesson == "Composition Rules":
+        st.subheader("Composition Rules")
+        st.write("Explore the rule of thirds, leading lines, and framing.")
+
+elif selection == "Project Ideas":
+    st.header("Project Ideas")
+    st.write("Get inspired with creative photography and videography projects.")
+    project = st.radio("Choose a category", ["Portrait Photography", "Short Films", "Nature Photography"])
+    if project == "Portrait Photography":
+        st.write("Try creating a portrait series with dramatic lighting.")
+    elif project == "Short Films":
+        st.write("Develop a 2-minute short film focusing on a single theme.")
+    elif project == "Nature Photography":
+        st.write("Capture the beauty of your local park or natural reserve.")
+
+elif selection == "Step-by-Step":
+    st.header("Step-by-Step Guides")
+    st.write("Follow step-by-step instructions for specific photography techniques.")
+    step = st.selectbox("Choose a topic", ["Editing Basics", "Shooting in Manual Mode", "Using a Gimbal"])
+    if step == "Editing Basics":
+        st.subheader("Editing Basics")
+        st.write("Learn how to use Lightroom or Photoshop to enhance your images.")
+    elif step == "Shooting in Manual Mode":
+        st.subheader("Shooting in Manual Mode")
+        st.write("Master manual mode for full creative control.")
+    elif step == "Using a Gimbal":
+        st.subheader("Using a Gimbal")
+        st.write("Stabilize your videos and add cinematic movements.")
+
+elif selection == "Glossary":
+    st.header("Glossary of Terms")
+    st.write("Find definitions for common photography and videography terms.")
+    term = st.text_input("Enter a term to search for")
+    if term:
+        st.write(f"Definition for {term}: (This feature will include a full glossary database.)")
+
+elif selection == "Troubleshooting":
+    st.header("Troubleshooting Help")
+    st.write("Identify and solve common photography and videography issues.")
+    issue = st.text_area("Describe your issue")
+    if issue:
+        st.write(f"Solutions for your issue '{issue}': (This feature will include troubleshooting tips.)")
+
+# Footer
+st.sidebar.write("Developed with ❤️ by PhotoYou Team")
